@@ -25,12 +25,12 @@ const tokenResolver = createSecretResolver({
 async function main() {
   const endpoint = env("LINEAR_MCP_ENDPOINT") || DEFAULT_ENDPOINT;
   const token = await tokenResolver.resolve();
-  const client = new Client({ name: "my-agent-stuff-linear-smoke", version: "0.1.0" });
+  const client = new Client({ name: "etgohome-agent-stuff-linear-smoke", version: "0.1.0" });
   const transport = new StreamableHTTPClientTransport(new URL(endpoint), {
     requestInit: {
       headers: {
         Authorization: `Bearer ${token}`,
-        "User-Agent": "my-agent-stuff-linear-smoke/0.1.0",
+        "User-Agent": "etgohome-agent-stuff-linear-smoke/0.1.0",
       },
     },
   });

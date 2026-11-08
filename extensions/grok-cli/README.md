@@ -1,6 +1,6 @@
 # grok-cli
 
-A Pi extension for `my-agent-stuff` that registers a `grok-cli` provider backed by the official Grok CLI login session.
+A Pi extension for `etgohome-agent-stuff` that registers a `grok-cli` provider backed by the official Grok CLI login session.
 
 If this works:
 
@@ -40,7 +40,7 @@ pi -e ./extensions/grok-cli --provider grok-cli --model grok-composer-2.5-fast -
 ## Install from local checkout
 
 ```bash
-pi install /path/to/my-agent-stuff
+pi install /path/to/etgohome-agent-stuff
 ```
 
 Then:

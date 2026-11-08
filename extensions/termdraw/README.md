@@ -14,7 +14,7 @@ Use `Enter` or `Ctrl+S` to insert the drawing into Pi. Use `Ctrl+Q` to close wit
 
 ## Local development
 
-This repo's root `package.json` loads `./extensions`, so the command is available when `my-agent-stuff` is installed as a Pi package.
+This repo's root `package.json` loads `./extensions`, so the command is available when `etgohome-agent-stuff` is installed as a Pi package.
 
 For a one-off test:
 

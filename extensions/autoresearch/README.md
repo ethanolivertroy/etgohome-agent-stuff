@@ -94,7 +94,7 @@ Use `null` to skip registering a shortcut. Omitted shortcuts keep their defaults
 
 **`autoresearch-finalize`** turns a noisy autoresearch branch into clean, independent branches — one per logical change, each starting from the merge-base. Groups must not share files, so each branch can be reviewed and merged independently.
 
-**`autoresearch-hooks`** *(optional)* helps author `autoresearch.hooks/before.sh` and `autoresearch.hooks/after.sh` for a session. It ships with ten reference scripts in [`skills/autoresearch-hooks/examples/`](skills/autoresearch-hooks/examples/) (external search, learnings journal, native notifications, anti-thrash, idea rotation, and more) — the skill handles the contract, you pick the inspiration. The core autoresearch loop has no hook awareness.
+**`autoresearch-hooks`** *(optional)* helps author `autoresearch.hooks/before.sh` and `autoresearch.hooks/after.sh` for a session. It ships with ten reference scripts in [`pi/skills/autoresearch-hooks/examples/`](../../pi/skills/autoresearch-hooks/examples/) (external search, learnings journal, native notifications, anti-thrash, idea rotation, and more) — the skill handles the contract, you pick the inspiration. The core autoresearch loop has no hook awareness.
 
 | File | Purpose |
 |------|---------|
@@ -318,7 +318,7 @@ Drop executable scripts in `autoresearch.hooks/` to run code at iteration bounda
 
 **Agent signal.** The agent writes `description` and `asi.*` fields in its `log_experiment` calls for its own future-self reasoning. The hook opportunistically mines whichever fields the agent naturally uses — `asi.hypothesis`, `asi.next_focus`, `description`, etc. There is no dedicated "hook input" field; the agent is unaware the hook exists.
 
-**Examples.** Reference scripts for both stages live at [`skills/autoresearch-hooks/examples/`](skills/autoresearch-hooks/examples/) — external search, qmd document search, persistent learnings, native notifications, git tagging, anti-thrash, idea rotator, hypothesis reflection, context rotation. Copy one to your session's `autoresearch.hooks/` directory, adapt, `chmod +x`.
+**Examples.** Reference scripts for both stages live at [`pi/skills/autoresearch-hooks/examples/`](../../pi/skills/autoresearch-hooks/examples/) — external search, qmd document search, persistent learnings, native notifications, git tagging, anti-thrash, idea rotator, hypothesis reflection, context rotation. Copy one to your session's `autoresearch.hooks/` directory, adapt, `chmod +x`.
 
 ---
 

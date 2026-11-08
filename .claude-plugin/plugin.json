@@ -1,0 +1,14 @@
+{
+  "$schema": "https://anthropic.com/claude-code/plugin.schema.json",
+  "name": "etgohome",
+  "version": "0.1.0",
+  "description": "Ethan Troy's portable agent skills: IaC and service-mesh security scanning, security review, EXIF stripping, Gemini image generation, Linear, Obsidian notes, and Made to Stick writing.",
+  "author": {
+    "name": "Ethan Troy",
+    "url": "https://github.com/ethanolivertroy"
+  },
+  "homepage": "https://github.com/ethanolivertroy/etgohome-agent-stuff",
+  "repository": "https://github.com/ethanolivertroy/etgohome-agent-stuff",
+  "license": "MIT",
+  "keywords": ["security", "grc", "nist", "iac", "obsidian", "linear", "images"]
+}

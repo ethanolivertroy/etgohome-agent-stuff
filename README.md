@@ -1,14 +1,42 @@
-# My Agent Stuff
+# etgohome-agent-stuff
+
+My public skills, plugins, extensions, and prompts for coding agents.
 
 - Inspired by https://github.com/mitsuhiko/agent-stuff
-- This is "my" agent-stuff
-- Although I would never marry any solution, pi.dev is mostly my daily driver now
+- Formerly `ethanolivertroy/my-agent-stuff` (history preserved here)
+- I don't marry any one tool, but [pi](https://pi.dev) is mostly my daily driver now
+
+## Install
+
+**Pi** (everything: extensions, skills, prompts):
+
+```bash
+pi install git:github.com/ethanolivertroy/etgohome-agent-stuff
+```
+
+**Claude Code** (the portable skills in `skills/`, as the `etgohome` plugin):
+
+```
+/plugin marketplace add ethanolivertroy/etgohome-agent-stuff
+/plugin install etgohome@etgohome-agent-stuff
+```
+
+**Other Agent Skills runtimes** (Codex, etc.): copy or symlink folders from `skills/`.
 
 ## Layout
 
-This follows the same broad shape as Armin's `agent-stuff` repo: first-class `extensions/`, `skills/`, and `commands/` directories loaded by the `pi` manifest. Former third-party Pi packages now live directly in those directories rather than in a vendor package folder.
+```
+skills/                       # portable Agent Skills: loaded by Pi and by the Claude Code plugin
+pi/skills/                    # Pi-only skills (depend on extensions in this repo)
+pi/prompts/                   # Pi prompt templates (use the subagents extension)
+extensions/                   # Pi extensions
+.claude-plugin/               # Claude Code marketplace + plugin manifests (plugin root = repo root)
+package.json                  # Pi package manifest (`pi` key)
+```
 
-See [upstream package sources](./docs/upstream-pi-packages.md) for provenance and license notes.
+Claude Code loads every `skills/` and `commands/` folder at the plugin root, so anything that
+only works in Pi belongs under `pi/`. See [upstream package sources](./docs/upstream-pi-packages.md)
+for provenance and license notes.
 
 ## Secret scanning
 
@@ -41,23 +69,51 @@ Extensions that need API tokens should use the shared local resolver in [`src/se
 | [subagents](./extensions/subagents) | Subagent orchestration tool, built-in agents, and related commands. |
 | [autoresearch](./extensions/autoresearch) | Experiment loop tools, dashboard, hooks, and autoresearch command. |
 
-## Pi Skills
+## Skills
+
+Portable skills (Pi + Claude Code + other Agent Skills runtimes):
 
 | Skill | Description |
 | --- | --- |
-| [clipboard-posting](./skills/clipboard-posting) | Use the rich clipboard extension for approved drafts, LinkedIn, and X posting flows. |
-| [conversation-dump](./skills/conversation-dump) | Export a full readable Markdown transcript of the current Pi conversation. |
 | [exif-stripper](./skills/exif-stripper) | Strip sensitive EXIF metadata from images before publishing to the web. |
 | [iac-security-scanner](./skills/iac-security-scanner) | Scan Terraform, Kubernetes, CloudFormation, ARM templates, and Dockerfiles for security misconfigurations with NIST mappings. |
 | [image-generator](./skills/image-generator) | Generate and edit images through Gemini image models. |
-| [huggingface-backup](./skills/huggingface-backup) | Safely back up local folders to private Hugging Face Buckets using `hf` and the `hf-buckets` extension. |
 | [jot](./skills/jot) | Append quick notes to a configured Obsidian daily note. |
 | [linear](./skills/linear) | Manage Linear issues, projects, cycles, and status workflows through the Linear MCP server. |
 | [made-to-stick](./skills/made-to-stick) | Apply the SUCCESs framework to make ideas, copy, and content more memorable. |
 | [mesh-security](./skills/mesh-security) | Analyze Istio, Consul, and Linkerd service mesh configurations for security issues and NIST control mappings. |
 | [mischief-managed](./skills/mischief-managed) | Capture a lean end-of-session note into an Obsidian vault with decisions, changes, validation, caveats, and follow-ups. |
-| [pi-subagents](./skills/pi-subagents) | Instructions for delegating work to the local subagent extension. |
 | [security-review](./skills/security-review) | Perform high-signal security reviews of pending branch changes with explicit false-positive filtering. |
-| [autoresearch-create](./skills/autoresearch-create) | Start an autonomous optimization experiment loop. |
-| [autoresearch-finalize](./skills/autoresearch-finalize) | Finalize autoresearch sessions into reviewable branches. |
-| [autoresearch-hooks](./skills/autoresearch-hooks) | Author pre/post iteration hooks for autoresearch. |
+
+Pi-only skills:
+
+| Skill | Description |
+| --- | --- |
+| [clipboard-posting](./pi/skills/clipboard-posting) | Use the rich clipboard extension for approved drafts, LinkedIn, and X posting flows. |
+| [conversation-dump](./pi/skills/conversation-dump) | Export a full readable Markdown transcript of the current Pi conversation. |
+| [huggingface-backup](./pi/skills/huggingface-backup) | Safely back up local folders to private Hugging Face Buckets using `hf` and the `hf-buckets` extension. |
+| [pi-subagents](./pi/skills/pi-subagents) | Instructions for delegating work to the local subagent extension. |
+| [autoresearch-create](./pi/skills/autoresearch-create) | Start an autonomous optimization experiment loop. |
+| [autoresearch-finalize](./pi/skills/autoresearch-finalize) | Finalize autoresearch sessions into reviewable branches. |
+| [autoresearch-hooks](./pi/skills/autoresearch-hooks) | Author pre/post iteration hooks for autoresearch. |
+
+## Pi Prompts
+
+Prompt templates in [`pi/prompts/`](./pi/prompts) for the subagents extension: `parallel-review`,
+`parallel-cleanup`, `parallel-research`, `parallel-context-build`, `parallel-handoff-plan`,
+`gather-context-and-clarify`, and `review-loop`.
+
+## Releasing the Claude Code plugin
+
+Bump `version` in `.claude-plugin/plugin.json` when skills change so installs pick up the update,
+then run:
+
+```bash
+claude plugin validate .
+```
+
+CI runs the same check on every push and PR.
+
+## License
+
+[MIT](./LICENSE), except where an upstream license file says otherwise.

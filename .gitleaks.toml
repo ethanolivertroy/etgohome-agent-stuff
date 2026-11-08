@@ -1,4 +1,4 @@
-title = "my-agent-stuff secret scanning"
+title = "etgohome-agent-stuff secret scanning"
 
 [extend]
 useDefault = true

@@ -1,7 +1,7 @@
 {
-  "name": "my-agent-stuff",
+  "name": "etgohome-agent-stuff",
   "version": "0.0.1",
-  "description": "Public agent skills for Pi, Codex, and compatible Agent Skills runtimes.",
+  "description": "Public agent skills, extensions, and prompts for Pi, Claude Code, Codex, and compatible Agent Skills runtimes.",
   "license": "MIT",
   "keywords": [
     "pi-package",
@@ -16,17 +16,20 @@
     "tts",
     "web-search",
     "pi-skill",
-    "pi-prompt"
+    "pi-prompt",
+    "claude-code",
+    "claude-code-plugin"
   ],
   "pi": {
     "extensions": [
       "./extensions"
     ],
     "skills": [
-      "./skills"
+      "./skills",
+      "./pi/skills"
     ],
     "prompts": [
-      "./commands"
+      "./pi/prompts"
     ]
   },
   "scripts": {
@@ -49,5 +52,9 @@
     "marked": "^18.0.2",
     "react": "^19.2.0",
     "typebox": "^1.1.33"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ethanolivertroy/etgohome-agent-stuff.git"
   }
 }

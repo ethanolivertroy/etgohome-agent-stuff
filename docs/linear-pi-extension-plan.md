@@ -78,7 +78,7 @@ Only if MCP pass-through is insufficient, add `@linear/sdk` direct implementatio
 ## Package structure
 
 ```text
-my-agent-stuff/
+etgohome-agent-stuff/
   package.json
   extensions/
     linear-mcp/

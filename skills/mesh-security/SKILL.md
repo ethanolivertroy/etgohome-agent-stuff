@@ -16,11 +16,11 @@ Comprehensive security analysis for Istio, Consul, and Linkerd service mesh conf
 ### Setup
 
 `MESH_SKILL_DIR` below means the folder that contains this `SKILL.md`, wherever the skill is
-installed. Set it in the same shell command you run the tools from, and install the one
+installed. Export it in the shell where you run the tools, and install the one
 dependency (`js-yaml`) the first time:
 
 ```bash
-MESH_SKILL_DIR=/path/to/skills/mesh-security
+export MESH_SKILL_DIR=/path/to/skills/mesh-security
 [ -d "$MESH_SKILL_DIR/node_modules/js-yaml" ] || npm install --prefix "$MESH_SKILL_DIR" --omit=dev --no-audit --no-fund
 ```
 
@@ -189,10 +189,12 @@ Steps:
 }
 ```
 
-## Related Skills
+## Reference Guides
 
-- **mesh-remediation** - Generate and apply security fixes
-- **mesh-compliance-reporter** - Generate FedRAMP/NIST compliance reports
+These guides are bundled with this skill:
+
+- For security fixes or remediation playbooks, read [Mesh Security Remediation](mesh-remediation.md).
+- For FedRAMP/NIST compliance reports, POA&M entries, or control coverage, read [Mesh Compliance Reporting](mesh-compliance-reporter.md).
 
 ## Programmatic Usage
 

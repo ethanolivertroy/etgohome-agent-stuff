@@ -16,16 +16,25 @@ Automatically detects and strips sensitive EXIF metadata from images before they
 
 ## What to Do
 
+Resolve the directory containing this `SKILL.md` from the loaded skill's path, then
+set `EXIF_SKILL_DIR` to that absolute directory. This works from a repository checkout
+or any runtime's skill installation. Keep the working directory at the user's project
+so relative image paths continue to resolve there.
+
+```bash
+export EXIF_SKILL_DIR="/absolute/path/to/exif-stripper"
+```
+
 1. **Proactively remind** the user to check images for sensitive metadata when they add images to public-facing content.
 
 2. **Audit first** — run the check script to see what metadata exists:
    ```bash
-   ./scripts/check-exif.sh <path>
+   bash "$EXIF_SKILL_DIR/scripts/check-exif.sh" <path>
    ```
 
 3. **Strip if needed** — remove sensitive metadata while preserving display-critical data:
    ```bash
-   ./scripts/strip-exif.sh <path>
+   bash "$EXIF_SKILL_DIR/scripts/strip-exif.sh" <path>
    ```
 
 ## What Gets Stripped vs Preserved
@@ -45,6 +54,5 @@ Automatically detects and strips sensitive EXIF metadata from images before they
 ## Important Notes
 
 - Always audit before stripping so the user knows what was found
-- If you install the optional hook files, staged images can be cleaned automatically before commit
 - Supported formats: JPG, JPEG, PNG, TIFF, WebP
 - Requires `exiftool` to be installed

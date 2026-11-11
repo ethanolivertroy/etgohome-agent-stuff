@@ -1,15 +1,6 @@
----
-name: mesh-remediation
-description: Generate and apply security fixes for Istio, Consul, and Linkerd service mesh configuration issues. Use when users want to fix mesh security vulnerabilities, generate remediation playbooks, or get configuration snippets to resolve security findings. Triggers on keywords like "fix mesh config", "remediate", "security fix", "patch config", or "generate playbook".
-license: MIT
-metadata:
-  author: mesh-config-analyzer
-  version: "1.0.0"
----
+# Mesh Security Remediation Guide
 
-# Mesh Security Remediation
-
-Generate security fixes and remediation playbooks for service mesh configuration issues.
+This reference guide is bundled with the [mesh-security skill](SKILL.md). Use it to generate security fixes, configuration snippets, and remediation playbooks for Istio, Consul, and Linkerd findings.
 
 > Commands use `MESH_SKILL_DIR`, the mesh-security skill folder; see Setup in [SKILL.md](SKILL.md).
 
@@ -172,7 +163,7 @@ const remediations = generateRemediations(results);
 const playbook = generatePlaybook(results);
 ```
 
-## Related Skills
+## Related References
 
-- **mesh-security** - Primary security analysis
-- **mesh-compliance-reporter** - Generate compliance reports
+- For primary security analysis and setup, see the [mesh-security skill](SKILL.md).
+- For compliance reports, see the [Mesh Compliance Reporting Guide](mesh-compliance-reporter.md).

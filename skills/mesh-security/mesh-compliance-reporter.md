@@ -1,15 +1,6 @@
----
-name: mesh-compliance-reporter
-description: Generate FedRAMP and NIST 800-53 compliance reports for service mesh configurations. Use when users need compliance documentation, POA&M entries, control coverage analysis, or assessment reports for Istio, Consul, or Linkerd. Triggers on keywords like "FedRAMP report", "NIST compliance", "POA&M", "compliance assessment", or "audit report".
-license: MIT
-metadata:
-  author: mesh-config-analyzer
-  version: "1.0.0"
----
+# Mesh Compliance Reporting Guide
 
-# Mesh Compliance Reporter
-
-Generate FedRAMP and NIST 800-53 compliance reports for service mesh configurations.
+This reference guide is bundled with the [mesh-security skill](SKILL.md). Use it to generate FedRAMP and NIST 800-53 compliance reports, POA&M entries, and control coverage analysis for Istio, Consul, and Linkerd configurations.
 
 > Commands use `MESH_SKILL_DIR`, the mesh-security skill folder; see Setup in [SKILL.md](SKILL.md).
 
@@ -216,7 +207,7 @@ const assessment = generateFedRAMPAssessment(results, 'moderate');
 const poamEntries = generatePOAMEntries(results.findings, 'Production Mesh');
 ```
 
-## Related Skills
+## Related References
 
-- **mesh-security** - Primary security analysis
-- **mesh-remediation** - Generate and apply fixes
+- For primary security analysis and setup, see the [mesh-security skill](SKILL.md).
+- For security fixes and remediation playbooks, see the [Mesh Security Remediation Guide](mesh-remediation.md).

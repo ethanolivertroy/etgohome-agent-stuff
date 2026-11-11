@@ -11,7 +11,7 @@ chmod +x /path/to/session/autoresearch.hooks/before.sh
 
 The files here are **not** marked executable on purpose — they're references, not installed hooks. A `chmod +x` step is required when you wire one up.
 
-For the hook contract (stdin schemas, stdout handling, timeouts, observability), see the main [README §Hooks](../../../README.md#hooks-optional).
+For the hook contract (stdin schemas, stdout handling, timeouts, observability), see the extension's [README §Hooks](../../../../extensions/autoresearch/README.md#hooks-optional).
 
 ## `before/` — fires before each iteration
 

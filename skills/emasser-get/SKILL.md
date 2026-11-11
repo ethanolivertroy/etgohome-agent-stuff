@@ -1,8 +1,8 @@
 ---
 name: emasser-get
 description: Execute eMASSer CLI GET commands to retrieve data from the eMASS API. Use when querying systems, controls, POA&Ms, milestones, artifacts, test results, CAC/PAC status, hardware/software baseline, CMMC assessments, workflow definitions, or dashboards.
-user-invocable: true
-argument-hint: "[systems|controls|poams|milestones|artifacts|test_results|cac|pac|hardware|software|cmmc|workflow|dashboards]"
+metadata:
+  argument-hint: "[systems|controls|poams|milestones|artifacts|test_results|cac|pac|hardware|software|cmmc|workflow|dashboards]"
 ---
 
 # eMASSer GET Commands

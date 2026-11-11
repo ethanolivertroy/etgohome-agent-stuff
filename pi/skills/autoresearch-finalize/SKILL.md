@@ -1,7 +1,8 @@
 ---
 name: autoresearch-finalize
-context: fork
 description: Finalize an autoresearch session into clean, reviewable branches. Use when asked to "finalize autoresearch", "clean up experiments", or "prepare autoresearch for review".
+metadata:
+  context: "fork"
 ---
 
 # Finalize Autoresearch

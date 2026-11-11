@@ -1,8 +1,8 @@
 ---
 name: emasser-put
 description: Execute eMASSer CLI PUT commands to update existing data in the eMASS API. Use when updating security controls, modifying POA&Ms, updating milestones, updating artifact metadata, or updating hardware/software baseline assets.
-user-invocable: true
-argument-hint: "[controls|poams|milestones|artifacts|hardware|software]"
+metadata:
+  argument-hint: "[controls|poams|milestones|artifacts|hardware|software]"
 ---
 
 # eMASSer PUT Commands

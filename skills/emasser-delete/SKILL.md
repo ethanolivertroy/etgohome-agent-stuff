@@ -1,8 +1,8 @@
 ---
 name: emasser-delete
 description: Execute eMASSer CLI DELETE commands to remove data from the eMASS API. Use when deleting POA&Ms, removing milestones, deleting artifacts, removing hardware/software assets, or clearing cloud resource and container scan results.
-user-invocable: true
-argument-hint: "[poams|milestones|artifacts|hardware|software|cloud_resource|container]"
+metadata:
+  argument-hint: "[poams|milestones|artifacts|hardware|software|cloud_resource|container]"
 ---
 
 # eMASSer DELETE Commands

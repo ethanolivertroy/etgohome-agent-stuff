@@ -8,9 +8,9 @@ It works across coding agents and lets you keep your notes in whatever knowledge
 
 ## Install
 
-This skill is part of [etgohome-agent-stuff](../../README.md#install), so the Pi package and
-the Claude Code plugin already include it. For other agents, copy this folder into the agent's
-skills directory:
+This skill is part of [etgohome-agent-stuff](../../README.md#install). To use it with an
+[Agent Skills](https://agentskills.io)-compatible runtime, copy or symlink this folder
+(`skills/mischief-managed/`) into the agent's skills directory:
 
 | Agent    | Install location                          |
 | -------- | ----------------------------------------- |

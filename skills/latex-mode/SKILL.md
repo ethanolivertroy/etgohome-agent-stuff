@@ -1,9 +1,6 @@
 ---
 name: latex-mode
-description: Use when the user wants a technical answer formalized as a checkable LaTeX derivation instead of conversational model prose.
-disable-model-invocation: true
-icon: book-open
-color: purple
+description: Use only when the user explicitly requests LaTeX mode or a technical answer formalized as a checkable LaTeX derivation.
 metadata:
   version: "0.1.0"
   inspiration: "https://x.com/_can1357/status/2094619896063635630"

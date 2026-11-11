@@ -1,8 +1,8 @@
 ---
 name: emasser-artifacts
 description: Read, inspect, export, and upload eMASS artifacts with the eMASSer CLI. Use when an agent needs to find local evidence files, validate them, upload artifacts, export existing artifacts, or verify uploaded evidence in eMASS.
-user-invocable: true
-argument-hint: "[read|inspect|upload|export|verify]"
+metadata:
+  argument-hint: "[read|inspect|upload|export|verify]"
 ---
 
 # eMASSer Artifact Read/Upload Workflow

@@ -1,8 +1,8 @@
 ---
 name: emasser-setup
 description: Set up and configure the eMASSer CLI tool for interacting with the eMASS (Enterprise Mission Assurance Support Service) API. Use when installing emasser, configuring environment variables, or troubleshooting connection issues.
-user-invocable: true
-argument-hint: "[install|configure|test]"
+metadata:
+  argument-hint: "[install|configure|test]"
 ---
 
 # eMASSer Setup & Configuration

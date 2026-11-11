@@ -17,8 +17,7 @@
     "web-search",
     "pi-skill",
     "pi-prompt",
-    "claude-code",
-    "claude-code-plugin"
+    "claude-code"
   ],
   "pi": {
     "extensions": [

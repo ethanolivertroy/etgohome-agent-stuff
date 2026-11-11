@@ -6,8 +6,10 @@ PNG, SVG, and PDF exports use draw.io Desktop's CLI with embedded diagram XML, s
 
 ## Install
 
-This skill ships with [etgohome-agent-stuff](../../README.md#install) (Pi package and
-Claude Code plugin). It was previously the standalone `pi-drawio` package.
+This skill is part of [etgohome-agent-stuff](../../README.md#install). To use it with an
+[Agent Skills](https://agentskills.io)-compatible runtime, copy or symlink this folder
+(`skills/drawio/`) into the runtime's skills directory. It was previously the standalone
+`pi-drawio` package.
 
 ## Usage
 

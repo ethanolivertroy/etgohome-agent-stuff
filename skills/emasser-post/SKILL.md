@@ -1,8 +1,8 @@
 ---
 name: emasser-post
 description: Execute eMASSer CLI POST commands to add data to the eMASS API. Use when registering certificates, uploading test results, creating POA&Ms, adding milestones, uploading artifacts, submitting CAC/PAC workflows, adding hardware/software assets, or uploading scan results (device scans, cloud resources, container scans, static code scans).
-user-invocable: true
-argument-hint: "[test_results|poams|milestones|artifacts|cac|pac|hardware|software|device_scans|cloud_resource|container|scan_findings]"
+metadata:
+  argument-hint: "[test_results|poams|milestones|artifacts|cac|pac|hardware|software|device_scans|cloud_resource|container|scan_findings]"
 ---
 
 # eMASSer POST Commands

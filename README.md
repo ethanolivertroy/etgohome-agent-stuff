@@ -1,9 +1,9 @@
 # etgohome-agent-stuff
 
-My public skills, plugins, extensions, and prompts for coding agents.
+My public Agent Skills, Pi extensions, and prompts for coding agents.
 
 - Inspired by https://github.com/mitsuhiko/agent-stuff
-- Consolidates `my-agent-stuff`, `pi-drawio`, `emass-skills`, `mischief-managed`, and `latex-mode` from `etgohome-plugin-staging` (history preserved here)
+- Consolidates `my-agent-stuff`, `pi-drawio`, `emass-skills`, `mischief-managed`, and `latex-mode` from `etgohome-plugin-staging`
 - I don't marry any one tool, but [pi](https://pi.dev) is mostly my daily driver now
 
 ## Install
@@ -14,28 +14,26 @@ My public skills, plugins, extensions, and prompts for coding agents.
 pi install git:github.com/ethanolivertroy/etgohome-agent-stuff
 ```
 
-**Claude Code** (the portable skills in `skills/`, as the `etgohome` plugin):
+**Agent Skills-compatible tools** (Codex, Claude Code, etc.): copy or symlink selected
+folders from `skills/` into your tool's skills directory. Each folder includes a
+`SKILL.md` and any supporting scripts, references, or assets.
 
-```
-/plugin marketplace add ethanolivertroy/etgohome-agent-stuff
-/plugin install etgohome@etgohome-agent-stuff
-```
-
-**Other Agent Skills runtimes** (Codex, etc.): copy or symlink folders from `skills/`.
+The portable skills follow the [Agent Skills format](https://agentskills.io/specification).
+Shared instructions for agents working on this repository live in [`AGENTS.md`](./AGENTS.md).
 
 ## Layout
 
 ```
-skills/                       # portable Agent Skills: loaded by Pi and by the Claude Code plugin
+AGENTS.md                     # shared repository instructions for coding agents
+skills/                       # portable Agent Skills, each with a SKILL.md
 pi/skills/                    # Pi-only skills (depend on extensions in this repo)
 pi/prompts/                   # Pi prompt templates (use the subagents extension)
 extensions/                   # Pi extensions
-.claude-plugin/               # Claude Code marketplace + plugin manifests (plugin root = repo root)
 package.json                  # Pi package manifest (`pi` key)
 ```
 
-Claude Code loads every `skills/` and `commands/` folder at the plugin root, so anything that
-only works in Pi belongs under `pi/`. See [upstream package sources](./docs/upstream-pi-packages.md)
+Skills and prompts that depend on Pi tools belong under `pi/`. See
+[upstream package sources](./docs/upstream-pi-packages.md)
 for provenance and license notes.
 
 ## Secret scanning
@@ -71,7 +69,7 @@ Extensions that need API tokens should use the shared local resolver in [`src/se
 
 ## Skills
 
-Portable skills (Pi + Claude Code + other Agent Skills runtimes):
+Portable skills for Agent Skills-compatible runtimes:
 
 | Skill | Description |
 | --- | --- |
@@ -106,17 +104,6 @@ Pi-only skills:
 Prompt templates in [`pi/prompts/`](./pi/prompts) for the subagents extension: `parallel-review`,
 `parallel-cleanup`, `parallel-research`, `parallel-context-build`, `parallel-handoff-plan`,
 `gather-context-and-clarify`, and `review-loop`.
-
-## Releasing the Claude Code plugin
-
-Bump `version` in `.claude-plugin/plugin.json` when skills change so installs pick up the update,
-then run:
-
-```bash
-claude plugin validate .
-```
-
-CI runs the same check on every push and PR.
 
 ## License
 

@@ -11,17 +11,19 @@ metadata:
 
 Generate FedRAMP and NIST 800-53 compliance reports for service mesh configurations.
 
+> Commands use `MESH_SKILL_DIR`, the mesh-security skill folder; see Setup in [SKILL.md](SKILL.md).
+
 ## Quick Start
 
 ```bash
 # Generate FedRAMP compliance report (markdown)
-node ~/.codex/skills/mesh-security/lib/report-generator.js <config-file> --fedramp
+node "$MESH_SKILL_DIR/lib/report-generator.js" <config-file> --fedramp
 
 # Specify FedRAMP impact level
-node ~/.codex/skills/mesh-security/lib/report-generator.js <config-file> --fedramp --impact high
+node "$MESH_SKILL_DIR/lib/report-generator.js" <config-file> --fedramp --impact high
 
 # Output as JSON
-node ~/.codex/skills/mesh-security/lib/report-generator.js <config-file> --json
+node "$MESH_SKILL_DIR/lib/report-generator.js" <config-file> --json
 ```
 
 ## Report Types
@@ -120,7 +122,7 @@ Example: `2026-SC-8-001`
 User: Generate a FedRAMP Moderate compliance report for my Consul config
 
 Steps:
-1. Run: node ~/.codex/skills/mesh-security/lib/report-generator.js ./consul-config.json --fedramp --impact moderate
+1. Run: node "$MESH_SKILL_DIR/lib/report-generator.js" ./consul-config.json --fedramp --impact moderate
 2. Present executive summary
 3. Highlight controls with findings
 4. Show POA&M entries for critical/high items
@@ -194,12 +196,13 @@ FedRAMP Moderate baseline requirements.
 ## Programmatic Usage
 
 ```javascript
-const { analyzeConfig } = require('~/.codex/skills/mesh-security/lib/analyzer-wrapper.js');
+const path = require('path');
+const { analyzeConfig } = require(path.join(process.env.MESH_SKILL_DIR, 'lib/analyzer-wrapper.js'));
 const {
   generateFedRAMPAssessment,
   generatePOAMEntries,
   formatComplianceReport
-} = require('~/.codex/skills/mesh-security/lib/report-generator.js');
+} = require(path.join(process.env.MESH_SKILL_DIR, 'lib/report-generator.js'));
 
 // Analyze and generate report
 const results = analyzeConfig('./config.yaml');

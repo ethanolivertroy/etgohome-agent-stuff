@@ -11,17 +11,19 @@ metadata:
 
 Generate security fixes and remediation playbooks for service mesh configuration issues.
 
+> Commands use `MESH_SKILL_DIR`, the mesh-security skill folder; see Setup in [SKILL.md](SKILL.md).
+
 ## Quick Start
 
 ```bash
 # Generate remediation recommendations
-node ~/.codex/skills/mesh-security/lib/remediation-engine.js <config-file>
+node "$MESH_SKILL_DIR/lib/remediation-engine.js" <config-file>
 
 # Generate a step-by-step playbook
-node ~/.codex/skills/mesh-security/lib/remediation-engine.js <config-file> --playbook
+node "$MESH_SKILL_DIR/lib/remediation-engine.js" <config-file> --playbook
 
 # Output as JSON
-node ~/.codex/skills/mesh-security/lib/remediation-engine.js <config-file> --json
+node "$MESH_SKILL_DIR/lib/remediation-engine.js" <config-file> --json
 ```
 
 ## Available Automated Fixes
@@ -72,8 +74,8 @@ node ~/.codex/skills/mesh-security/lib/remediation-engine.js <config-file> --jso
 User: Fix the security issues in my Istio config at ./istio-meshconfig.yaml
 
 Steps:
-1. Run analysis: node ~/.codex/skills/mesh-security/lib/analyzer-wrapper.js ./istio-meshconfig.yaml
-2. Generate fixes: node ~/.codex/skills/mesh-security/lib/remediation-engine.js ./istio-meshconfig.yaml
+1. Run analysis: node "$MESH_SKILL_DIR/lib/analyzer-wrapper.js" ./istio-meshconfig.yaml
+2. Generate fixes: node "$MESH_SKILL_DIR/lib/remediation-engine.js" ./istio-meshconfig.yaml
 3. Present fixes grouped by severity
 4. For each fix:
    - Show the current problematic configuration
@@ -156,8 +158,9 @@ spec:
 ## Programmatic Usage
 
 ```javascript
-const { analyzeConfig } = require('~/.codex/skills/mesh-security/lib/analyzer-wrapper.js');
-const { generateRemediations, generatePlaybook } = require('~/.codex/skills/mesh-security/lib/remediation-engine.js');
+const path = require('path');
+const { analyzeConfig } = require(path.join(process.env.MESH_SKILL_DIR, 'lib/analyzer-wrapper.js'));
+const { generateRemediations, generatePlaybook } = require(path.join(process.env.MESH_SKILL_DIR, 'lib/remediation-engine.js'));
 
 // Get analysis results
 const results = analyzeConfig('./config.yaml');

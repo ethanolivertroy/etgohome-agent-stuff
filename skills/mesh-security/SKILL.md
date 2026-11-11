@@ -13,16 +13,27 @@ Comprehensive security analysis for Istio, Consul, and Linkerd service mesh conf
 
 ## Quick Start
 
+### Setup
+
+`MESH_SKILL_DIR` below means the folder that contains this `SKILL.md`, wherever the skill is
+installed. Set it in the same shell command you run the tools from, and install the one
+dependency (`js-yaml`) the first time:
+
+```bash
+MESH_SKILL_DIR=/path/to/skills/mesh-security
+[ -d "$MESH_SKILL_DIR/node_modules/js-yaml" ] || npm install --prefix "$MESH_SKILL_DIR" --omit=dev --no-audit --no-fund
+```
+
 ### Analyze a Configuration File
 
 ```bash
 # Run the analyzer wrapper directly
-node ~/.codex/skills/mesh-security/lib/analyzer-wrapper.js <config-file>
+node "$MESH_SKILL_DIR/lib/analyzer-wrapper.js" <config-file>
 
 # Examples
-node ~/.codex/skills/mesh-security/lib/analyzer-wrapper.js ./istio-meshconfig.yaml
-node ~/.codex/skills/mesh-security/lib/analyzer-wrapper.js ./consul-config.json
-node ~/.codex/skills/mesh-security/lib/analyzer-wrapper.js ./linkerd-config.yaml --json
+node "$MESH_SKILL_DIR/lib/analyzer-wrapper.js" ./istio-meshconfig.yaml
+node "$MESH_SKILL_DIR/lib/analyzer-wrapper.js" ./consul-config.json
+node "$MESH_SKILL_DIR/lib/analyzer-wrapper.js" ./linkerd-config.yaml --json
 ```
 
 ### Sample Configurations
@@ -133,7 +144,7 @@ User: Analyze my Istio mesh configuration at ./istio-config.yaml
 
 Steps:
 1. Read the file to understand the mesh configuration
-2. Run: node ~/.codex/skills/mesh-security/lib/analyzer-wrapper.js ./istio-config.yaml
+2. Run: node "$MESH_SKILL_DIR/lib/analyzer-wrapper.js" ./istio-config.yaml
 3. Present findings grouped by severity
 4. Highlight critical/high severity issues first
 5. Include NIST control mappings for compliance context
@@ -186,7 +197,8 @@ Steps:
 ## Programmatic Usage
 
 ```javascript
-const { analyzeConfig, formatFindings } = require('~/.codex/skills/mesh-security/lib/analyzer-wrapper.js');
+const path = require('path');
+const { analyzeConfig, formatFindings } = require(path.join(process.env.MESH_SKILL_DIR, 'lib/analyzer-wrapper.js'));
 
 // Analyze a config file
 const results = analyzeConfig('./istio-config.yaml');
